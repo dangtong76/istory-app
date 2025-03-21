@@ -24,7 +24,8 @@ jobs:
 
       - name: 개발용 application.yml 생성
         run: |
-          cat > src/main/resources/application.yml << EOF
+          cat > src/main/resources/application.yml <<-EOF
+          spring:
             datasource:
               url: ${{ secrets.DATABASE_URL }} # 예dbc:mysql://localhost:3306/istory
               username: ${{ secrets.MYSQL_USER }}
