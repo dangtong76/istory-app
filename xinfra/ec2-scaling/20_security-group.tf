@@ -68,6 +68,14 @@ resource "aws_security_group" "istory_alb_sg" {
   }
 
   egress {
+    from_port       = 8080
+    to_port         = 8080
+    protocol        = "tcp"
+    security_groups = [aws_security_group.istory_prod_ec2_sg.id] # EC2 보안 그룹 추가
+    cidr_blocks     = ["0.0.0.0/0"]  # 필요에 따라 수정 가능
+  }
+
+  egress {
     from_port   = 0
     to_port     = 0
     protocol    = "-1"
@@ -90,6 +98,7 @@ resource "aws_security_group" "istory_prod_ec2_sg" {
     to_port         = 8080
     protocol        = "tcp"
     security_groups = [aws_security_group.istory_alb_sg.id]
+    cidr_blocks     = ["0.0.0.0/0"] 
   }
 
   ingress {
