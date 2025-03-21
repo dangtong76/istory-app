@@ -72,7 +72,7 @@ jobs:
           mkdir -p deployment
           cp build/libs/*.jar deployment/${{ env.ARTIFACT_NAME }}
           cp appspec.yml deployment/
-          cp -r scripts deployment/
+          cp scripts/* deployment/scripts/
           chmod +x deployment/scripts/*.sh
           chmod +x deployment/*.jar
           cd deployment && zip -r ../deploy.zip .          
