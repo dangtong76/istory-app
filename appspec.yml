@@ -9,16 +9,6 @@ permissions:
     owner: ec2-user
     group: ec2-user
     mode: 755
-  - object: /home/ec2-user/app/scripts
-    pattern: "*.sh"
-    owner: ec2-user
-    group: ec2-user
-    mode: 755
-  - object: /home/ec2-user/app
-    pattern: "*.jar"
-    owner: ec2-user
-    group: ec2-user
-    mode: 755
 hooks:
   BeforeInstall:
     - location: scripts/before_install.sh

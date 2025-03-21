@@ -51,7 +51,7 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ vars.AWS_REGION }} 
-          
+
       - name: Set up JDK 17
         uses: actions/setup-java@v4
         with:
@@ -73,6 +73,8 @@ jobs:
           cp build/libs/*.jar deployment/${{ env.ARTIFACT_NAME }}
           cp appspec.yml deployment/
           cp -r scripts deployment/
+          chmod +x deployment/scripts/*.sh
+          chmod +x deployment/*.jar
           cd deployment && zip -r ../deploy.zip .          
 
       - name: S3 업로드
