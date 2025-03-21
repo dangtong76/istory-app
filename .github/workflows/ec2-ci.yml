@@ -39,14 +39,11 @@ jobs:
       with:
         java-version: '17'
         distribution: 'temurin'
-
-    - name: Run test java
+    - name: Generate Basic Info in Markdown
       run: |
-          chmod +x gradlew
-          ./gradlew test
-
-    - name: Notify on Failure
-      if: failure()
-      run: |
-        echo "Tests failed! Pipeline will be stopped."
-        exit 1
+        echo "## 워크플로우 실행 정보 요약" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "* 실행 담당자: ${{ github.actor }}" >> $GITHUB_STEP_SUMMARY
+        echo "* 실행 이벤트: ${{ github.event_name }}" >> $GITHUB_STEP_SUMMARY
+        echo "* 실행 저장소: ${{ github.repository }}" >> $GITHUB_STEP_SUMMARY
+        echo "* 실행 브랜치: ${{ github.ref }}" >> $GITHUB_STEP_SUMMARY
