@@ -93,7 +93,7 @@ jobs:
         run: |
           DEPLOYMENTS=$(aws deploy list-deployments \
             --application-name istory-app \
-            --deployment-group-name istory-deploy-group \
+            --deployment-group-name istory-prod-deploy-group \
             --include-only-statuses "InProgress" \
             --query 'deployments[]' \
             --output text)
