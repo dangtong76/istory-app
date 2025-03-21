@@ -1,19 +1,32 @@
 spring:
   datasource:
-    url: ${DATABASE_URL:jdbc:mysql://192.168.200.2:3306/istory}
-    username: ${MYSQL_USERNAME:root}
-    password: ${MYSQL_PASSWORD:admin123}
+    url: ${DATABASE_URL}
+    username: ${MYSQL_USER}
+    password: ${MYSQL_PASSWORD}
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
-    database-platform: org.hibernate.dialect.MySQLDialect
+    database-platform: org.hibernate.dialect.MySQL8Dialect
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: update
     show-sql: true
   application:
     name: USER-SERVICE
   jwt:
     issuer: user@gmail.com
     secret_key: study-springboot
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+      base-path: /actuator
+  endpoint:
+    health:
+      show-details: always
+    shutdown:
+      enabled: true
+
 #spring:
 #  jpa:
 #    show-sql: true

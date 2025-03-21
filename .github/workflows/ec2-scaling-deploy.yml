@@ -25,10 +25,6 @@ jobs:
       - name: 개발용 application.yml 생성
         run: |
           cat > src/main/resources/application.yml << EOF
-          spring:
-            security:
-              basic:
-                enabled: false
             datasource:
               url: ${{ secrets.DATABASE_URL }} # 예dbc:mysql://localhost:3306/istory
               username: ${{ secrets.MYSQL_USER }}
@@ -48,11 +44,12 @@ jobs:
             endpoints:
               web:
                 exposure:
-                  include: "*"
-                base-path: /actuator
+                  include: "health"
             endpoint:
               health:
                 show-details: always
+            security:
+              enabled: false
           EOF
 
       - name: AWS 접속정보 설정
