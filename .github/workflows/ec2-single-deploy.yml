@@ -69,7 +69,7 @@ jobs:
 
       - name: Create deployment package
         run: |
-          mkdir -p deployment
+          mkdir -p deployment/scripts
           cp build/libs/*.jar deployment/${{ env.ARTIFACT_NAME }}
           cp appspec.yml deployment/
           cp scripts/* deployment/scripts/
