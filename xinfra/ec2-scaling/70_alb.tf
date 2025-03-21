@@ -24,7 +24,7 @@ resource "aws_lb_target_group" "istory_tg" {
     healthy_threshold   = 2
     unhealthy_threshold = 2
     interval            = 6
-    matcher            = "200"
+    matcher            = "302"
     path               = "/actuator/health"
     port               = "traffic-port"
     timeout            = 5
