@@ -1,4 +1,4 @@
-#4
+#5
 name: istory ci/cd dev pipeline
 
 permissions:
@@ -17,7 +17,7 @@ on:
 jobs:
   build-and-upload:
     runs-on: ubuntu-latest
-    environment: dev
+    environment: prod
     steps:
       - name: 배포용 소스 다운로드
         uses: actions/checkout@v4
