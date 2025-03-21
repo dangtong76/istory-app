@@ -7,7 +7,7 @@ permissions:
 
 on:
   push:
-    branches: [ "dev"]
+    branches: [ "test"]
 jobs:
   build-and-upload:
     runs-on: ubuntu-latest
