@@ -22,12 +22,12 @@ resource "aws_lb_target_group" "istory_tg" {
   health_check {
     enabled             = true
     healthy_threshold   = 2
-    interval            = 30
+    unhealthy_threshold = 2
+    interval            = 6
     matcher            = "200"
     path               = "/actuator/health"
     port               = "traffic-port"
     timeout            = 5
-    unhealthy_threshold = 2
   }
 }
 
