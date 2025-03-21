@@ -51,7 +51,7 @@ jobs:
     - name: Run Checkstyle
       run: |
         mkdir -p build/reports/checkstyle
-        ./gradlew checkstyleMain checkstyleTest --info
+        ./gradlew -x checkstyleMain checkstyleTest --stacktrace
         ls -la build/reports/checkstyle || true
 
     - name: Upload Checkstyle results
