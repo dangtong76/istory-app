@@ -41,7 +41,9 @@ jobs:
         distribution: 'temurin'
 
     - name: Run test java
-      run: ./gradlew test
+      run: |
+          chmod +x gradlew
+          ./gradlew test
 
     - name: Notify on Failure
       if: failure()
